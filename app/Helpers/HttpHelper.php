@@ -62,7 +62,7 @@ class HttpHelper
     }
 
     /**
-     * Pass in array of URLs and get back a results array
+     * Pass in array of URLs which will be async GET'ed and get back a results array
      * @param array $urls
      * @return mixed
      */
