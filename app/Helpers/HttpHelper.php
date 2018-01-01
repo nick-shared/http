@@ -1,31 +1,16 @@
 <?php
 namespace Mutant\Http\App\Helpers;
 
+use GuzzleHttp\Pool;
+use GuzzleHttp\Client;
+use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Promise;
+use Mutant\String\App\Helpers\StringHelper;
+
 class HttpHelper
 {
-
     /**
-     * Pass in an array of hosts with a single path and
-     * @param $url_path
-     * @return array
-     */
-    public function buildUrls($hosts, $url_path)
-    {
-        // Sanitize the path
-        $url_path = $this->sanitizeUrlPath($url_path);
-
-        // Build the array or URLs
-        $out = [];
-        foreach ($hosts as $host) {
-            $out[] = $host . "/{$url_path}";
-        }
-
-        // Sanitize the array of Urls
-        $out = $this->sanitizeUrls($out);
-        return $out;
-    }
-
-    /**
+     * Removes
      * Make url path match RFC 3986
      * https://tools.ietf.org/html/rfc3986
      *
@@ -36,7 +21,7 @@ class HttpHelper
     {
         $word = str_replace(" ", "", $string); // Get rid of whitespace
         $chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.-_~!$&'()*+,;=:@"; // All valid RFC 3986 characters
-        $word = $this->removeAllBut($chars, $word);
+        $word = StringHelper::removeAllBut($chars, $word);
         return $word;
     }
 
