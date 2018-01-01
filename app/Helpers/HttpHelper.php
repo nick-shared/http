@@ -21,7 +21,7 @@ class HttpHelper
     {
         $word = str_replace(" ", "", $string); // Get rid of whitespace
         $chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.-_~!$&'()*+,;=:@"; // All valid RFC 3986 characters
-        $word = StringHelper::removeAllBut($chars, $word);
+        $word = StringHelper::removeAllExcept($chars, $word);
         return $word;
     }
 
