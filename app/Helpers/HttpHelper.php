@@ -66,7 +66,7 @@ class HttpHelper
      * @param array $urls
      * @return mixed
      */
-    public function asyncPost(array $urls)
+    public function asyncGetRequest(array $urls)
     {
         // Create a client that doesn't throw on failures
         $client = new Client([
