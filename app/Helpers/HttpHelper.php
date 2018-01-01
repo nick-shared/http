@@ -17,7 +17,7 @@ class HttpHelper
      * @param $string
      * @return mixed
      */
-    public function sanitizeUrlPath($string)
+    public static function sanitizeUrlPath($string)
     {
         $word = str_replace(" ", "", $string); // Get rid of whitespace
         $chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.-_~!$&'()*+,;=:@"; // All valid RFC 3986 characters
@@ -32,7 +32,7 @@ class HttpHelper
      * @param array $urls
      * @return array
      */
-    public function validateUrlsGood(array $urls)
+    public static function validateUrlsGood(array $urls)
     {
         $out = [];
         foreach ($urls as $url) {
@@ -50,7 +50,7 @@ class HttpHelper
      * @param array $urls
      * @return array
      */
-    public function validateUrlsBad(array $urls)
+    public static function validateUrlsBad(array $urls)
     {
         $out = [];
         foreach ($urls as $url) {
@@ -66,7 +66,7 @@ class HttpHelper
      * @param array $urls
      * @return mixed
      */
-    public function asyncGet(array $urls)
+    public static function asyncGet(array $urls)
     {
         // Create a client that doesn't throw on failures
         $client = new Client([
