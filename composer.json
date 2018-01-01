@@ -1,0 +1,22 @@
+{
+  "name": "mutant/http",
+  "description": "Mutant Shared Packages.",
+  "type": "library",
+  "version": "1.0.0",
+  "prefer-stable": true,
+  "authors": [
+    {
+      "name": "Nick T-bone Kiermaier",
+      "email": "nickkiermaier@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0.0",
+    "guzzlehttp/guzzle": "~6.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Mutant\\Http\\": "."
+    }
+  }
+}
