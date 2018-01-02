@@ -1,9 +1,7 @@
 <?php
 namespace Mutant\Http\App\Helpers;
 
-use GuzzleHttp\Pool;
 use GuzzleHttp\Client;
-use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Promise;
 use Mutant\String\App\Helpers\StringHelper;
 
@@ -17,7 +15,7 @@ class HttpHelper
      * @param $string
      * @return mixed
      */
-    public static function sanitizeUrlPath($string)
+    public static function sanitizeUrlPath(string $string)
     {
         $word = str_replace(" ", "", $string); // Get rid of whitespace
         $chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.-_~!$&'()*+,;=:@"; // All valid RFC 3986 characters
@@ -80,7 +78,7 @@ class HttpHelper
             $promises[$url] = $client->getAsync($url);
         }
 
-        // Wait for the requests to complete, even if some of them fail
+        // Wait for the requests to complete
         $results = Promise\settle($promises)->wait();
 
         // Return the array of results
