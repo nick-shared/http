@@ -75,7 +75,7 @@ class HttpHelper
         $promises = [];
         foreach ($urls as $key => $url) {
             $url = (string)$url;
-            $promises[$url] = $client->getAsync($url);
+            $promises[$url] = $client->getAsync($url, ['http_errors' => false]);
         }
 
         // Wait for the requests to complete
