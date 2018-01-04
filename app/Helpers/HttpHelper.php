@@ -17,7 +17,8 @@ class HttpHelper
      */
     public static function sanitizeUrlPath(string $string)
     {
-        $word = str_replace(" ", "", $string); // Get rid of whitespace
+        $word = trim($string); // get rid of any newlines/carriages etc. (may be un-neccesary due to the preg_match but whatever it takes nano-seconds.)
+        $word = str_replace(" ", "", $word); // Get rid of whitespace
         $chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.-_~!$&'()*+,;=:@"; // All valid RFC 3986 characters
         $word = StringHelper::removeAllExcept($chars, $word);
         return $word;
